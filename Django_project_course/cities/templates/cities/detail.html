@@ -1,16 +1,19 @@
 {% extends "base.html"%}
 
-{%block title%}Города{% endblock%}
+{%block title%}Город{% endblock%}
 
 {%block content%}
 <div class="position-relative overflow-hidden m-md-3 text-center bg-light">
     <div class=" p-lg-5">   
     <div class="row">
         <div class='text-left'>
-            <h1 class="">Города</h1>
-            {% for city in object_list %}
-                <p><a href="#">{{city.name}}</a></p>
-            {% endfor %}
+            <h1>Город</h1>
+                <p>Название города: {{object.name}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-left">
+            <a href='{% url "city:home"%}'><button type='button' class='btn-light'>Назад к списку</button></a>
         </div>
     </div>
     </div>
