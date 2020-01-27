@@ -1,18 +1,16 @@
 {% extends "base.html"%}
 
-{%block title%}Добавление Города{% endblock%}
+{%block title%}Редактирование Города{% endblock%}
 
 {%block content%}
-
 <div class="position-relative overflow-hidden m-md-3 text-center bg-light">
-    
-    <div class=" p-lg-5">
+    <div class=" p-lg-5">   
     <div class="row mx-auto">
         <div class='text-left'>
             <a href='{% url "city:home"%}'><button type='button' class='btn-light btn-sm'>Назад к списку</button></a>
-            <h1 class="">Добавить новый Город</h1>
+            <h1 class="">Редактировать Город</h1>
             <!-- Форма для добавления города -->
-            <h5>Вы можете добавить город:</h5>
+            <h5>Вы можете отредактировать город:</h5>
             <form action="" method="post"> {% csrf_token %}
                 <!-- csrf token необходим для разрешения запросов POST -->
                 {{form.as_p}}

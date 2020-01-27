@@ -8,18 +8,21 @@
     <div class="row">
         <div class='text-left'>
             <h1 class="">Города</h1>
-            {% for city in object_list %}
-                <p><a href="#">{{city.name}}</a></p>
-            {% endfor %}
+            
+            <table class="table table-striped">
+                <tbody>
+                    {% for city in object_list %}
+                    <tr>
+                        <td><a href='{% url "city:detail" pk=city.pk%}'>{{city.name}}</a></td>
+                        <td><a href='{% url "city:update" pk=city.pk%}'><button type="button" class="btn btn-primary btn-sm">edit</button></a></td>
+                        <td><a href='{% url "city:delete" pk=city.pk%}'><button type="button" class="btn btn-danger btn-sm">delete</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                
             <!-- Форма для добавления города -->
-            <h5>Вы можете добавить город:</h5>
-            <form action="" method="post"> {% csrf_token %}
-                <!-- csrf token необходим для разрешения запросов POST -->
-                {{form.as_p}}
-                <!-- Форма через form API-->
-                <br/>
-                <input type="submit" value="Сохранить">
-            </form>
+            <p><a href="{% url 'city:add'%}"><button type="button" class="btn btn-secondary btn-sm">Добавить город</button></a></p>
 
         </div>
     </div>

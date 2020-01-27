@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import City
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import FormView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .forms import CityForm
 
@@ -29,4 +29,17 @@ class CityCreateView(CreateView):
     template_name = "cities/create.html"
     success_url = reverse_lazy('city:home')
 
+class CityUpdateView(UpdateView):
+    model = City
+    form_class = CityForm
+    template_name = "cities/update.html"
+    success_url = reverse_lazy('city:home')
 
+class CityDeleteView(DeleteView):
+    model = City
+    template_name = "cities/delete.html"
+    success_url = reverse_lazy('city:home')
+
+    # Вариант удаления сразу
+    # def get(self, request, *args, **kwargs):
+    #     return self.post(request, *args, **kwargs)
