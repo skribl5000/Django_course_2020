@@ -1,0 +1,28 @@
+{% extends "base.html"%}
+
+{%block title%}Удаление Поезд{% endblock%}
+
+{%block content%}
+<div class="position-relative overflow-hidden m-md-3 text-center bg-light">
+    <div class=" p-lg-5">   
+    <div class="row mx-auto">
+        <div class='text-left'>
+            <a href='{% url "train:home"%}'><button type='button' class='btn-light btn-sm'>Назад к списку</button></a>
+            <h1 class="">Удалить Поезд</h1>
+            <!-- Форма для добавления Поезд -->
+            <h5>Вы можете удалить Поезд:</h5>
+            <form method="post">{% csrf_token %}
+                <p>Вы действительно хотите удалить Поезд "{{ object }}"?</p>
+                <input type="submit" value="Удалить">
+            </form>
+        </div>
+    </div>
+    </div>
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+
+    
+
+</div class="col-md-5 p-lg-5 mx-auto my-5">
+
+{%endblock%}

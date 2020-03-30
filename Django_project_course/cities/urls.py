@@ -10,6 +10,5 @@ urlpatterns = [
     path('delete/<int:pk>/', CityDeleteView.as_view(), name = 'delete'),
     path('', home, name = 'home'),
     path('add/', CityCreateView.as_view(), name = 'add'),
-    
 ]
 
